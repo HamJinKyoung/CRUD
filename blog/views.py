@@ -43,3 +43,16 @@ def remove(request, pk):
     blog.delete()
     return redirect('home')
 
+def detail(request, blog_id):
+        blog_detail = get_object_or_404(Blog, pk=blog_id)
+        return render(request, 'blog/detail.html', {'blog':blog_detail})
+
+# def comments_create(request, blog_id):
+#     blog = Blog.objects.get(pk=blog_id)
+#     content = request.POST.get('content')
+
+#     comment = Comment(blog=blog, comment=comment)
+#     comment.save()
+
+#     return redirect('blogs:detail', blog.pk)
+
